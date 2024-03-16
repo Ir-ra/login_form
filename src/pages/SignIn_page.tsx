@@ -1,4 +1,3 @@
-import Logo from "../components/Logo/Logo";
 import SignIn from "../components/SignIn/SignIn";
 import Title from "../components/Title/Title";
 import google from '../assets/google.svg';
@@ -9,7 +8,6 @@ import Divider_or from "../components/Divider/Divider";
 export default function SignIn_page() {
   return (
     <main>
-      <Logo />
       <div>
         <Title title='Log in to your account' />
         <div className="buttonLink__container">

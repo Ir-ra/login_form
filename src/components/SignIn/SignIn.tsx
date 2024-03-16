@@ -81,7 +81,6 @@ export default function SignIn() {
             }}
           >
             {({ errors, handleSubmit, isSubmitting }) => {
-              console.log('isSubmitting', isSubmitting);
               return (
                 <Form onSubmit={handleSubmit} className="form">
                   <div className="form__inputs-container">

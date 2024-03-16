@@ -8,13 +8,19 @@
   gap: 10px;
   flex-shrink: 0;
   border-radius: 6px;
-  border: 1.2px solid var(--Gray-200, #D3D8DC);
-  background: var(--Interface-Essential-White, #FFF);
+  border: 1.2px solid var(--Gray-200);
+  background: var(--White);
+  box-sizing: border-box;
+
+  &:hover {
+    border-color: var(--Gray-eye);
+  }
 
   &__container {
     display: flex;
     gap: 16px;
   }
+
   &__text {
     color: var(--Gray-900);
     margin: 0;
