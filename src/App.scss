@@ -1,44 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&family=Space+Grotesk:wght@300..700&display=swap');
+
 #root {
+  display: flex;
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
   text-align: center;
+  height: 100vh;
+
+  --Gray-200: #D3D8DC;
+  --White: #FFF;
+  --Gray-400: #A1ABB5;
+  --Gray-eye: #67717B;
+  --Error: #a32020;
+  --Blue: #316FEA;
+  --Blue-hover: #265ac1;
+  --Gray-900: #060E1E;
+
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-  
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  height: 100%;
+  margin: 0;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 400px;
+  margin: auto;
+  font-family: "Space Grotesk", sans-serif;
+  font-style: normal;
+  gap: 80px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  &__inputs-container {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    margin-bottom: 15px;
+  }
+
+  &__input {
+    position: relative;
+    width: 100%;
+
+    &--error-message {
+      position: absolute;
+      font-size: 10px;
+      color: var(--Error);
+    }
+  }
+
+  &__input-field {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+
+    height: 48px;
+    padding: 0px 12px;
+    align-items: center;
+    gap: 6px;
+
+    border-radius: 6px;
+    border: 1.2px solid var(--Gray-200);
+    background: var(--White);
+
+    &::placeholder {
+      color: var(--Gray-400);
+
+      font-size: 15px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 20px;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__password-container {
+    position: relative;
+    display: flex;
+    width: 100%;
+
+    &--btn {
+      position: absolute;
+      top: 55%;
+      right: 15px;
+      transform: translateY(-50%);
+      background-color: transparent;
+      border: none;
+      padding: 0;
+      width: 20px;
+      height: 20px;
+      color: var(--Gray-eye);
+      background-size: cover;
+    }
+
+    &--btn:focus {
+      outline: none;
+    }
+  }
+
+  &__forgot-link {
+    color: var(--Blue);
+    text-align: right;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.42;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s ease-in;
+    margin-bottom: 30px;
+
+    &:hover {
+      text-decoration: none;
+      color: var(--Blue-hover);
+    }
+  }
+
+  &__info {
+    color: var(--Gray-900);
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42;
+    letter-spacing: 0.2px;
+
+    &--link {
+      color: var(--Blue);
+      font-weight: 500;
+
+      text-decoration: none;
+      transition: all 0.2s ease-in;
+
+      &:hover {
+        color: var(--Blue-hover);
+      }
+    }
+  }
+}
+
+.logInButton {
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  background: var(--Blue);
+  color: var(--White, #FFF);
+  text-align: center;
+  padding: 13px;
+  margin-bottom: 20px;
+
+  font-size: 16px;
+
+  font-weight: 500;
+  line-height: 21px;
+  cursor: pointer;
+  transition: all 0.2s ease-in;
+
   &:hover {
-    filter: drop-shadow(0 0 2em #646cffaa);
+    background: var(--Blue-hover);
   }
-}
-
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
 }
