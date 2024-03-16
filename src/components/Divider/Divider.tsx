@@ -5,23 +5,24 @@ export default function Divider_or() {
     <>
       <Divider
         sx={{
-          marginBottom: "50px",
-          marginTop: "50px",
-          color: "grey",
+          marginBottom: "30px",
+          marginTop: "30px",
+          color: "#BEC5CC",
           "&.MuiDivider-root": {
-            fontSize: "16px",
-            lineHeight: "1.25",
+            fontSize: "12px",
+            lineHeight: "1.33",
+            fontWeight: '500'
           },
           "&.MuiDivider-root::after": {
-            borderTop: "thin solid grey",
+            borderTop: "thin solid #E3E6E9",
           },
           "&.MuiDivider-root::before": {
-            borderTop: "thin solid grey",
+            borderTop: "thin solid #E3E6E9",
           },
         }}
       >
         <span>
-          or
+          OR
         </span>
       </Divider>
     </>
