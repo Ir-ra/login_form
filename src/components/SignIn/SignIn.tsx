@@ -4,6 +4,7 @@ import * as Yup from 'yup';
 import { MdOutlineVisibility } from 'react-icons/md';
 import { AiOutlineEyeInvisible } from 'react-icons/ai';
 import { NavLink } from "react-router-dom";
+import Button from "../Button/Button";
 
 export default function SignIn() {
   const [isLoading, setIsLoading] = useState(false);
@@ -132,16 +133,19 @@ export default function SignIn() {
                   <NavLink to="/forgot-password" className="form__forgot-link">
                     Forgot your password?
                   </NavLink>
-                  <button className="logInButton" type="submit" disabled={isSubmitting}>
-                    Log in to Qencode
-                  </button>
+
+                  <Button
+                    title="Log in to Qencode"
+                    disabled={isSubmitting}
+                    type="submit"
+                  />
 
                   <div>
                     <p className="form__info">
-                    Is your company new to Qencode?
-                    <NavLink to='#' className="form__info--link">
-                    <span> Sign up</span>
-                    </NavLink>
+                      Is your company new to Qencode?
+                      <NavLink to='#' className="form__info--link">
+                        <span> Sign up</span>
+                      </NavLink>
                     </p>
                   </div>
                 </Form>
