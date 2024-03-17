@@ -3,7 +3,7 @@ type ButtonType = "button" | "submit" | "reset";
 type ButtonProps = {
   title: string;
   type: ButtonType;
-  disabled: boolean;
+  disabled?: boolean;
   style?: string;
 
 }

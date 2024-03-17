@@ -99,45 +99,48 @@ export default function SignIn() {
                       <ErrorMessage name="email" component="div" className="form__input--error-message" />
                     </div>
                     {validEmail && (
-                      <>
-                        <div className="form__input">
-                          <div className="form__password-container">
-                            <Field
-                              type={showPassword ? "text" : "password"}
-                              id="password"
-                              name="password"
-                              autoComplete="current-password"
-                              placeholder="Password"
-                              onFocus={() => setPasswordFocused(true)}
-                              onBlur={() => setPasswordFocused(false)}
-                              className={passwordFocused ? 'form__input-field focused' : 'form__input-field'}
-                            />
-                            <button
-                              type="button"
-                              onClick={handlePasswordVisibility}
-                              className={errors.password || passwordError ? 'form__password-container--btn error' : 'form__password-container--btn'}
-                            >
-                              {showPassword ? (
-                                <MdOutlineVisibility style={{ width: "20px", height: "20px" }} />
-                              ) : (
-                                <AiOutlineEyeInvisible style={{ width: "20px", height: "20px" }} />
-                              )}
-                            </button>
-                          </div>
-                          <ErrorMessage name="password" component="div" className="form__input--error-message" />
+                      <div className="form__input">
+                        <div className="form__password-container">
+                          <Field
+                            type={showPassword ? "text" : "password"}
+                            id="password"
+                            name="password"
+                            autoComplete="current-password"
+                            placeholder="Password"
+                            onFocus={() => setPasswordFocused(true)}
+                            onBlur={() => setPasswordFocused(false)}
+                            className={passwordFocused ? 'form__input-field focused' : 'form__input-field'}
+                          />
+                          <button
+                            type="button"
+                            onClick={handlePasswordVisibility}
+                            className={errors.password || passwordError ? 'form__password-container--btn error' : 'form__password-container--btn'}
+                          >
+                            {showPassword ? (
+                              <MdOutlineVisibility style={{ width: "20px", height: "20px" }} />
+                            ) : (
+                              <AiOutlineEyeInvisible style={{ width: "20px", height: "20px" }} />
+                            )}
+                          </button>
                         </div>
-                      </>
+                        <ErrorMessage name="password" component="div" className="form__input--error-message" />
+                      </div>
                     )}
                   </div>
-                  <NavLink to="/forgot-password" className="form__forgot-link">
-                    Forgot your password?
-                  </NavLink>
+                  {validEmail && (
+                    <NavLink to="/forgot-password" className="form__forgot-link">
+                      Forgot your password?
+                    </NavLink>
+                  )}
 
-                  <Button
-                    title="Log in to Qencode"
-                    disabled={isSubmitting}
-                    type="submit"
-                  />
+
+                  <div className="button__wraper">
+                    <Button
+                      title="Log in to Qencode"
+                      disabled={isSubmitting}
+                      type="submit"
+                    />
+                  </div>
 
                   <div>
                     <p className="form__info">
@@ -151,8 +154,6 @@ export default function SignIn() {
               )
             }}
           </Formik>
-
-
         </>
       )}
     </>

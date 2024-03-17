@@ -5,6 +5,7 @@ import ForgotPassword_page from './pages/ForgotPassword_page';
 import SignIn_page from './pages/SignIn_page';
 import Layout from './components/Layout/Layout';
 import Logo from './components/Logo/Logo';
+import CreatePassword_page from './pages/CreatePassword_page';
 
 const App: React.FC = () => {
   return (
@@ -26,6 +27,14 @@ const App: React.FC = () => {
             element={
               <Suspense>
                 <ForgotPassword_page />
+              </Suspense>
+            } />
+
+          <Route
+            path='/create-password'
+            element={
+              <Suspense>
+                <CreatePassword_page />
               </Suspense>
             } />
         </Route>

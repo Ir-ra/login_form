@@ -7,17 +7,20 @@
     display: flex;
     flex-direction: column;
     gap: 25px;
-    margin-bottom: 15px;
   }
 
   &__input {
     position: relative;
     width: 100%;
+    display: flex;
+    gap: 25px;
+    flex-direction: column;
 
     &--error-message {
       position: absolute;
       font-size: 10px;
       color: var(--Error);
+      bottom: -13px;
     }
   }
 
@@ -53,10 +56,21 @@
     }
   }
 
+  &__label {
+    display: flex;
+    color: #060E1E;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: -0.036px;
+  }
+
   &__password-container {
     position: relative;
     display: flex;
+    flex-direction: column;
     width: 100%;
+    gap: 8px;
 
     &--btn {
       position: absolute;
@@ -77,6 +91,12 @@
     }
   }
 
+  &__createPass {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
   &__forgot-link {
     color: var(--Blue);
     text-align: right;
@@ -86,7 +106,7 @@
     text-decoration: none;
     cursor: pointer;
     transition: all 0.2s ease-in;
-    margin-bottom: 30px;
+    margin-top: 15px;
 
     &:hover {
       text-decoration: none;
