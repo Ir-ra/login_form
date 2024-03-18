@@ -4,13 +4,11 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import ForgotPassword_page from './pages/ForgotPassword_page';
 import SignIn_page from './pages/SignIn_page';
 import Layout from './components/Layout/Layout';
-import Logo from './components/Logo/Logo';
 import CreatePassword_page from './pages/CreatePassword_page';
 
 const App: React.FC = () => {
   return (
     <>
-
       <Routes>
         <Route path='/' element={<Navigate to="/login" replace />} />
         <Route path='/' element={<Layout />}>
