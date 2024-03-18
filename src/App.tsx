@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React from 'react';
 import './App.scss';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import ForgotPassword_page from './pages/ForgotPassword_page';
@@ -14,27 +14,15 @@ const App: React.FC = () => {
         <Route path='/' element={<Layout />}>
           <Route
             path='/login'
-            element={
-              <Suspense>
-                <SignIn_page />
-              </Suspense>
-            } />
+            element={<SignIn_page />} />
 
           <Route
             path='/forgot-password'
-            element={
-              <Suspense>
-                <ForgotPassword_page />
-              </Suspense>
-            } />
+            element={<ForgotPassword_page />} />
 
           <Route
             path='/create-password'
-            element={
-              <Suspense>
-                <CreatePassword_page />
-              </Suspense>
-            } />
+            element={<CreatePassword_page />} />
         </Route>
 
       </Routes>

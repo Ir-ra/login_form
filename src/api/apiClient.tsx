@@ -33,9 +33,10 @@ export const useApiClient = () => {
       if (!data.error) {
         setTokens(data);
       }
-      return data;
+      return { error: JSON.stringify(data.detail) };
     } catch (error) {
       console.error('Login failed:', error);
+      return { error: JSON.stringify(error) };
     }
   };
 
@@ -70,10 +71,10 @@ export const useApiClient = () => {
         })
       });
       const data = await response.json();
-      return data;
+      return { error: JSON.stringify(data.detail) };
     } catch (error) {
       console.error('Password can not be reset:', error);
-      throw error;
+      return { error: JSON.stringify(error) };
     }
   };
 
@@ -92,9 +93,10 @@ export const useApiClient = () => {
         })
       });
       const data = await response.json();
-      return data;
+      return { error: JSON.stringify(data.detail) };
     } catch (error) {
       console.error('New password can not be set:', error);
+      return { error: JSON.stringify(error) };
     }
   };
 

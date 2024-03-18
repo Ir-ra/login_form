@@ -35,20 +35,16 @@ export default function SignIn() {
 
         onSubmit={(values, { setSubmitting, setFieldError }) => {
           login(values)
-            .then((data) => {
-              if (data.error) {
-                setFieldError('password', data.detail);
+            .then((res) => {
+              if (res.error) {
+                setFieldError('password', res.error);
               }
-            },
-              (error) => {
-                throw error
-              })
+            })
             .finally(() => {
               setSubmitting(false);
             })
 
         }}
-
         validateOnBlur={true}
         validateOnChange={true}
       >

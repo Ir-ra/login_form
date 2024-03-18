@@ -38,9 +38,17 @@ export default function CreatePassword() {
             .required('Confirm Password is required')
         })}
 
-        onSubmit={(values, { setSubmitting }) => {
-          setNewPassword(values);
-          setSubmitting(false);
+        onSubmit={(values, { setSubmitting, setFieldError }) => {
+          setNewPassword(values)
+            .then((res) => {
+              if (res.error) {
+                setFieldError('password', res.error);
+              }
+            })
+            .finally(() => {
+              setSubmitting(false);
+            })
+
         }}
 
         validateOnBlur={true}

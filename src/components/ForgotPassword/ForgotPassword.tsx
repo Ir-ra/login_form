@@ -10,16 +10,6 @@ export default function ForgotPassword() {
   const navigate = useNavigate();
   const { resetPassword } = useApiClient()
 
-  const handleForgotPassword = async (email: string) => {
-    resetPassword(email)
-      .then((data) => {
-        if (!data.error) {
-          navigate('/create-password');
-        }
-        navigate('/create-password');
-      })
-  };
-
   return (
     <div className="forgot">
       <Formik
@@ -32,13 +22,18 @@ export default function ForgotPassword() {
             .matches(/^[^@]+@[^@]+\.[^@]+$/, 'Email address must contain a period after the @ sign')
             .required('Email is required'),
         })}
-        onSubmit={(values, { setSubmitting }) => {
-
-          handleForgotPassword(values.email);
-
-          setTimeout(() => {
-            setSubmitting(false);
-          }, 100);
+        onSubmit={(values, { setSubmitting, setFieldError }) => {
+          resetPassword(values.email)
+            .then((res) => {
+              if (res.error) {
+                setFieldError('email', res.error);
+              } else {
+                navigate('/create-password');
+              }
+            })
+            .finally(() => {
+              setSubmitting(false);
+            })
         }}
 
         validateOnBlur={true}
