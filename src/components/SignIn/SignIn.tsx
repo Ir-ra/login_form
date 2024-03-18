@@ -4,12 +4,13 @@ import * as Yup from 'yup';
 import { MdOutlineVisibility } from 'react-icons/md';
 import { AiOutlineEyeInvisible } from 'react-icons/ai';
 import { NavLink } from "react-router-dom";
+
 import Button from "../Button/Button";
-import { login } from "../../api/clientApi";
+import { useApiClient } from "../../api/apiClient";
 
 export default function SignIn() {
   const [showPassword, setShowPassword] = useState(false);
-  // const [validEmail, setValidEmail] = useState(false);
+  const { login } = useApiClient();
 
   const handlePasswordVisibility = () => {
     setShowPassword((prevShowPassword) => !prevShowPassword);
@@ -37,20 +38,21 @@ export default function SignIn() {
             .then((data) => {
               if (data.error) {
                 setFieldError('password', data.detail);
-              } 
+              }
             },
               (error) => {
-                console.log('error', error);
+                throw error
               })
             .finally(() => {
               setSubmitting(false);
             })
 
         }}
+
         validateOnBlur={true}
         validateOnChange={true}
       >
-        {({ errors, handleSubmit, isSubmitting }) => {
+        {({ errors, handleSubmit, isSubmitting, touched }) => {
           return (
             <Form onSubmit={handleSubmit} className="form">
               <div className="form__inputs-container">
@@ -62,12 +64,13 @@ export default function SignIn() {
                     autoComplete="username"
                     placeholder="Email"
                     className='form__input-field'
-                    error={errors.email}
-                    
+                    aria-label="email"
                   />
+
                   <ErrorMessage name="email" component="div" className="form__input--error-message" />
                 </div>
-                {true && (
+
+                {!errors.email && touched.email && (
                   <div className="form__input">
                     <div className="form__password-container">
                       <Field
@@ -77,7 +80,9 @@ export default function SignIn() {
                         autoComplete="current-password"
                         placeholder="Password"
                         className='form__input-field'
+                        aria-label="password"
                       />
+
                       <button
                         type="button"
                         onClick={handlePasswordVisibility}
@@ -90,11 +95,13 @@ export default function SignIn() {
                         )}
                       </button>
                     </div>
+
                     <ErrorMessage name="password" component="div" className="form__input--error-message" />
                   </div>
                 )}
               </div>
-              {true && (
+
+              {!errors.email && touched.email && (
                 <NavLink to="/forgot-password" className="form__forgot-link">
                   Forgot your password?
                 </NavLink>
