@@ -27,6 +27,8 @@ export default function SignIn() {
         validationSchema={Yup.object({
           email: Yup.string()
             .email('Invalid email address')
+            .matches(/^[^@]+@[^@]+\.[^@]+$/, 'Email address must contain a period after the @ sign')
+            .min(15, 'Email must be at least 15 characters long')
             .required('Email is required'),
           password: Yup.string()
             .min(8, 'Password must be at least 8 characters long')

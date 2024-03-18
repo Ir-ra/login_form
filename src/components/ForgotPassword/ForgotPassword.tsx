@@ -19,6 +19,7 @@ export default function ForgotPassword() {
         validationSchema={Yup.object({
           email: Yup.string()
             .email('Invalid email address')
+            .min(15, 'Email must be at least 15 characters long')
             .matches(/^[^@]+@[^@]+\.[^@]+$/, 'Email address must contain a period after the @ sign')
             .required('Email is required'),
         })}
